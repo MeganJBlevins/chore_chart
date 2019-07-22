@@ -1,0 +1,117 @@
+/*@import url('https://fonts.googleapis.com/css?family=Architects+Daughter&display=swap');
+*/
+body{
+	background-image: url('/static/images/rainbow_background.png');
+	background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+}
+h1{
+	color: #fff;
+	font-size: 5rem;
+	font-family: 'Architects Daughter', cursive;
+}
+h2{
+	color: #9A76E7;
+	font-size: 2.5rem;
+	font-family: 'Architects Daughter', cursive;
+}
+.choreList th, .choreList td{
+	border: 1px solid black;
+}
+.user-item{
+    width: 200px;
+	height: 200px;
+	background-size: cover;
+}
+.user-item *{
+	text-align: center;
+}
+.user-item.dinosaur{
+	background-image: url('/static/images/dinosaur_user.png');
+}
+.user-item.princess{
+	background-image: url('/static/images/princess_user.png');
+}
+.user-item.monster{
+	background-image: url('/static/images/monster_user.png');
+}
+.user-item.car{
+	background-image: url('/static/images/car_user.png');
+}
+.user-item.unicorn{
+	background-image: url('/static/images/unicorn_user.png');
+}
+.amount_earned{
+    font-size: 4rem;
+    color: gold;
+    text-shadow: 1px 1px #333;
+}
+
+/** progress bar **/
+
+#countdown-wrap {
+  width: 100%;
+  height: 300px;
+  //border: 1px solid black;
+  padding: 20px;
+  font-family: arial;
+  max-width: 650px;
+  margin: 150px auto 300px;
+}
+
+#goal {
+  color: gold;
+  text-shadow: 1px 1px #333;
+  font-size: 5rem;
+  font-weight: bold;	
+  text-align: right;
+  @media only screen and (max-width : 640px) {
+    text-align: center;  
+  }
+  
+}
+
+#glass {
+  width: 100%;
+  height: 40px;
+  background: #c7c7c7;
+  border-radius: 10px;
+  float: left;
+  overflow: hidden;
+}
+
+#progress {
+  float: left;
+  width: 0%;
+  height: 50px;
+  background: #FF5D50;
+  z-index: 333;
+  //border-radius: 5px;
+}
+
+.goal-stat {
+  width: 100%;
+  //height: 30px;
+  padding: 10px;
+  float: left;
+  margin: 0;
+  color: #FFF;
+  
+  @media only screen and (max-width : 640px) {
+    width: 50%;
+    text-align: center;
+  }
+}
+
+.goal-number, .goal-label {
+  display: block;
+}
+.goal-label{
+	font-size: 3rem;	
+	line-height: 40px;
+}
+.goal-number {
+  font-size: 4rem;
+}

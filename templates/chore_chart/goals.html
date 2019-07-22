@@ -1,0 +1,24 @@
+{% extends "chore_chart/base.html" %}
+{% load static %}
+
+{% block body_block %}
+<h1 class="text-center">Goals</h1>
+<div id=countdown-wrap class="my-2">
+  <div id="goal">{{ goal }}</div>
+  <div id="glass">
+    <div id="progress">
+    </div>
+  </div>
+  <div class="goal-stat">
+	<span class="goal-label">You Have</span>
+    <span class="goal-number">{{ bank }}</span>
+  </div>
+</div>
+
+<style>
+	#progress {
+		 width: {{ progress }}%;
+		}
+</style>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "chore_chart/base.html" %}
+{% load static %}
+
+{% block body_block %}
+<div class="w-50 mx-auto mt-5">
+	<h1 class="text-center mb-2">Please Login</h1>
+	<h2 class="text-center mb-4">{{ username }}</h2>
+	<form action="{% url 'chore_chart:user_login' %}" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="username" value="{{ username }}">
+		<div class="text-center">
+			<label for="password">Password:</label>
+			<input type="password" name="password">
+		</div>
+		<input class="w-50 mt-4 btn btn-primary d-block mx-auto" type="submit" value="GO!">
+	</form>
+	{% if error %}
+	<div class="error-block mt-4">
+		<h3 class="text-center">Try Again</h3>
+	</div>
+	{% endif %}
+</div>	
+{% endblock %}

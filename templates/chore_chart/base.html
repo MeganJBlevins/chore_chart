@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Blevins Chore Chart</title>
+		<link href="https://fonts.googleapis.com/css?family=Architects+Daughter&display=swap" rel="stylesheet" />
+ 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+ 		<link rel="stylesheet" href="{% static "css/style.css" %}"/>
+ 	</head>	
+ 	<body>
+ 		<nav class="navbar navbar-expand-lg navbar-light navbar-static-top">
+		  <a class="navbar-brand" href="{% url 'chore_chart:index' %}"><img width="100px" src="{% static "images/home-button.png"%}"/></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		    {% if user.is_staff %}
+		      <li class="nav-item">
+		        <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+		      </li>
+		      {% endif %}
+ 			  {% if user.is_authenticated %}
+		      	<li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+		      {% endif %}
+		    </ul>
+		  </div>
+		</nav>
+ 		
+
+		<div class="container">
+
+			{% block body_block %}
+
+			{% endblock %}
+
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="{% static "js/custom.js" %}"></script>
+
+ 	</body>
+</html>

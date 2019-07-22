@@ -1,0 +1,23 @@
+{% extends "chore_chart/base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+
+			<div class="title my-5">
+				<h1 class="text-center mb-2">Chore Chart</h1>
+				<h2 class="text-center">Let's Get To Work!</h2>
+			</div>
+			<div class="user-container row mt-5">
+				{% for p in profiles %}
+					<div class="col-lg-4">
+						<a href="{% url 'chore_chart:user_login'  %}?username={{p.user}}"">
+							<div class="mx-auto user-item {{ p.profile_image }}"></div>
+							<h2 class="d-block text-center">{{ p.user|title}}</h2>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		
+	
+{% endblock %}

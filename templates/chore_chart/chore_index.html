@@ -1,0 +1,28 @@
+{% extends "chore_chart/base.html" %}
+{% load static %}
+{% block body_block %}
+{% static "" as baseUrl %}
+
+<div id="app">
+	<h1 class="mt-5 text-center">Hello {{ username|title }}</h1>
+	<h2 class="text-center">What did you do today?</h2>
+	<div class="row my-5 mt-5">
+	{% for c in chores %}
+	<div class="col-lg-4">
+		<div class="chore-block" data-form-id="{{ c.id }}" data-username="{{ username }}">
+			<form id="{{ c.id }}" method="POST">
+				{% csrf_token %}
+				<input type="hidden" value="{{ c.id }}" name="chore"/>
+				<img class="d-block mx-auto" height="200px" src="{{ baseUrl }}/images/{{c.image}}" alt="image"/>
+				<h2 class="text-center" >{{c.chore_name|title}}</h2>
+			</form>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+<div class="row">
+	<a class="btn btn-primary my-5 mx-auto w-100px" href="/chore-chart/goals">Goals</a>
+</div>
+</div>
+
+{% endblock %}
